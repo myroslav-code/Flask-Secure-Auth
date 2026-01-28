@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Твоё убежище</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/icon.png') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  
+    
+  <div class= "box">  
+    <h1>Добро пожаловать в систему</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p style="color: red;">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <p>Выбери свой путь:</p>   
+    <a href="{{ url_for('register') }}" class="btn-noir">Зарегистрироваться</a>
+    <a href="{{ url_for('login') }}" class="btn-noir btn-outline">Войти</a>        
+  </div> 
+</body>
+</html>
