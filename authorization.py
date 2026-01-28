@@ -4,10 +4,11 @@ import os
 from werkzeug.security import generate_password_hash, check_password_hash
 from zxcvbn import zxcvbn
 from datetime import timedelta
-
+from dotenv import load_dotenv
+load_dotenv()
 app = Flask(__name__)
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)
-app.secret_key = 'secret_key_777' 
+app.secret_key = os.getenv('FLASK_SECRET_KEY', 'default-key-for-dev') 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATABASE = os.path.join(BASE_DIR, 'users.db')

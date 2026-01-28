@@ -13,3 +13,5 @@ users.db
 
 # Настройки IDE
 .vscode/
+
+.env
